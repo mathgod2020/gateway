@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+ <meta charset="utf-8">
+ <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <title>GateWay</title>
+  <link rel="shortcut icon" href="icon.ico">
+ </head>
+ <body>
+  <input type="text" class="input" placeholder="Base64 Here">
+  <br>
+  <input type="button" value="decode" class="btn">
+  <div style="width: 190pt; height: 190pt; border-style: solid; margin-top: 10pt">
+   <img class="image" style="width: 190pt; height: 190pt; cursor: pointer;" src="" alt="No Image">
+  </div>
+  <br>
+  <textarea name="" id="" cols="30" rows="10" class="textarea" placeholder="Big Base64 Here"></textarea>
+  <style>
+   .input{
+    border-color: lightgray;
+    border-style: solid;
+    border-radius: 0%;
+    border-width: 1pt;
+    width: 190pt;
+    height: 16pt;
+    outline: 0;
+   }
+   .input:hover{
+    border-color: gray;
+   }
+   .input:focus{
+    border-color: gray;
+   }
+   .btn{
+    width: 195pt;
+    height: 20pt;
+    margin-top: 5pt;
+    color: white;
+    font-weight: bold;
+    background: rgb(46, 67, 255);
+    outline: 0;
+    border: 0;
+    border-radius: 1.75pt;
+    transition-duration: .2s;
+   }
+   .btn:hover{
+    background: rgb(51, 105, 255);
+    transition-duration: .2s;
+    cursor: pointer;
+   }
+  </style>
+  <script>
+   var x = true;
+   $(".btn").click(function(){
+    var a = 'data:image/png;base64,'+$(".input").val();
+    $(".image").attr('src', a);
+   })
+   $(".image").click(function(){
+    if(x==true){
+     $(".image").width("auto");
+     $(".image").height("auto");
+     x = false;
+    }else{
+     $(".image").width("190pt");
+     $(".image").height("190pt");
+     x = true;
+    }
+   })
+   $(".textarea").change(function(){
+    $(".input").val($(".textarea").val());
+   })
+  </script>
+ </body>
+</html>
